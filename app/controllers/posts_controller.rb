@@ -8,7 +8,7 @@ def new
 end
 
 def create
-    @post = Posts.new(params[:post].permit(:title, :text))
+    @post = Post.new(post_params)
 
     if @post.save
         redirect_to @post
@@ -44,8 +44,13 @@ end
 
 
 private
+
 def post_params
     params.require(:post).permit(:title, :text)
+  end
+
+def set_post
+    @post = Post.find(params[:id])
 end
 
 end
