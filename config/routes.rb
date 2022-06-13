@@ -1,4 +1,5 @@
 Rails.application.routes.draw do
+  resources :campaigns
   resources :posts
   resources :post
   devise_for :funders
